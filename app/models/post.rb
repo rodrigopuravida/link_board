@@ -13,11 +13,4 @@ class Post < ActiveRecord::Base
   presence: true,
   uniqueness: {case_sensitive: false}
 
-  validates_presence_of :password, :link, :email on: :create
-
-  has_many :posts
-
-
-end
-
 end
