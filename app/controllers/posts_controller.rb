@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  # before_action :is_authenticated?
+  before_action :is_authenticated?
   # FORGOT HOW THIS WORKS
 
   def index
