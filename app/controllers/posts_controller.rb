@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   # FORGOT HOW THIS WORKS
 
   def index
-    @posts = Post.all
-    # @posts = @current_user.posts
+    # @posts = Post.all
+    @posts = @current_user.posts
   end
 
 
@@ -15,21 +15,21 @@ class PostsController < ApplicationController
 
   def create
     # render json: params
-    # @current_user.posts.create posts_params
+    @current_user.posts.create post_params
 
-    @post = Post.new(post_params)
-    if @post.save
-      # Handle a successful save.
+    # # @post = Post.new(post_params)
+    # if @post.save
+    #   # Handle a successful save.
       redirect_to posts_path
-    else
-      render 'new'
-    end
+    # else
+    #   render 'new'
+    # end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title,:link,:user_id)
+    params.require(:post).permit(:title,:link)
   end
 
 end
